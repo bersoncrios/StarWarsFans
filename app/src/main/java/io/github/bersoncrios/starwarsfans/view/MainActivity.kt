@@ -2,7 +2,6 @@ package io.github.bersoncrios.starwarsfans.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -31,11 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.items.observe(this) { person ->
             person?.let {
-                Log.d("TAG", "onCreate: ${it.results}")
                 adapter = PersonAdapter(
                     this, it,
                     PersonAdapter.OnClickListener {person ->
-                        Toast.makeText(applicationContext, person.name, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, person.url, Toast.LENGTH_SHORT).show()
                     }
                 )
 
