@@ -1,15 +1,18 @@
 package io.github.bersoncrios.starwarsfans.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.facebook.shimmer.ShimmerFrameLayout
 import io.github.bersoncrios.starwarsfans.R
 import io.github.bersoncrios.starwarsfans.databinding.ActivityMainBinding
 import io.github.bersoncrios.starwarsfans.view.adapter.PersonAdapter
 import io.github.bersoncrios.starwarsfans.viewmodels.PersonViewModel
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvPersons.setHasFixedSize(true)
         binding.rvPersons.layoutManager = LinearLayoutManager(this)
+
 
         viewModel = ViewModelProvider(this)[PersonViewModel::class.java]
 
@@ -39,7 +43,20 @@ class MainActivity : AppCompatActivity() {
 
                 binding.rvPersons.adapter = adapter
                 adapter.notifyDataSetChanged()
+                binding.shimmerLayout.startShimmerAnimation()
+                binding.shimmerLayout.visibility = View.GONE
+                binding.rvPersons.visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onResume() {
+        binding.shimmerLayout.startShimmerAnimation()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        binding.shimmerLayout.stopShimmerAnimation()
+        super.onPause()
     }
 }
