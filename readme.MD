@@ -12,12 +12,19 @@ e tecnologias modernas no android.
 ## Tecnologias Usadas
 
 -[Retrofit](https://square.github.io/retrofit/) - Para chamadas de rede
+
 -[MVVM](https://www.digitalocean.com/community/tutorials/android-mvvm-design-pattern) - Como padrão de design de código
+
 -[Shimmer](https://facebook.github.io/shimmer-android/) - Loading ao carregar dados da api
--[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAiAr4GgBhBFEiwAgwORrW40l2idAhK8Bi8Frlcmhiu6QBfmwIdvr0iTXuN2C_kBB-GnPz99IBoCMbEQAvD_BwE&gclsrc=aw.ds&hl=pt-br) 
--[View Binding](https://developer.android.com/topic/libraries/view-binding?hl=pt-br)
+
+-[ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAiAr4GgBhBFEiwAgwORrW40l2idAhK8Bi8Frlcmhiu6QBfmwIdvr0iTXuN2C_kBB-GnPz99IBoCMbEQAvD_BwE&gclsrc=aw.ds&hl=pt-br)
+
+-[View Binding](https://developer.android.com/topic/libraries/view-binding?hl=pt-br) -  Acesso a elementos da tela de forma mais rápida
+
 -[Room](https://developer.android.com/training/data-storage/room?hl=pt-br) - Salvamento de dados locais - BD
+
 -[LiveData](https://developer.android.com/topic/libraries/architecture/livedata?hl=pt-br) 
+
 -[Star Wars API](https://swapi.dev/) - Api de dados de star wars que trara os dados para o App
    
     
