@@ -1,9 +1,14 @@
 package io.github.bersoncrios.starwarsfans.models
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "person")
 data class Result(
+    @PrimaryKey(autoGenerate = true)
+    val personId: Int,
     @SerializedName("birth_year")
     val birthYear: String,
     @SerializedName("created")
@@ -12,8 +17,10 @@ data class Result(
     val edited: String,
     @SerializedName("eye_color")
     val eyeColor: String,
-    @SerializedName("films")
-    val films: List<String>,
+
+//    @SerializedName("films")
+//    val films: List<String>,
+
     @SerializedName("gender")
     val gender: String,
     @SerializedName("hair_color")
@@ -28,12 +35,16 @@ data class Result(
     val name: String,
     @SerializedName("skin_color")
     val skinColor: String,
-    @SerializedName("species")
-    val species: List<String>,
-    @SerializedName("starships")
-    val starships: List<String>,
+
+//    @SerializedName("species")
+//    val species: List<String>,
+
+//    @SerializedName("starships")
+//    val starships: List<String>,
+
     @SerializedName("url")
     val url: String,
-    @SerializedName("vehicles")
-    val vehicles: List<String>
+
+//    @SerializedName("vehicles")
+//    val vehicles: List<String>
 )

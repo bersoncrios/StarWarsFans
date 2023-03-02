@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.facebook.shimmer.ShimmerFrameLayout
+import io.github.bersoncrios.starwarsfans.Application
 import io.github.bersoncrios.starwarsfans.R
 import io.github.bersoncrios.starwarsfans.databinding.ActivityMainBinding
 import io.github.bersoncrios.starwarsfans.view.adapter.PersonAdapter
 import io.github.bersoncrios.starwarsfans.viewmodels.PersonViewModel
+import io.github.bersoncrios.starwarsfans.viewmodels.ViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,12 +29,12 @@ class MainActivity : AppCompatActivity() {
         binding.rvPersons.setHasFixedSize(true)
         binding.rvPersons.layoutManager = LinearLayoutManager(this)
 
+        val repository = (application as Application).personRepository
 
-        viewModel = ViewModelProvider(this)[PersonViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewModelFactory(repository))[PersonViewModel::class.java]
 
-        viewModel.fetchPersons()
 
-        viewModel.items.observe(this) { person ->
+        viewModel.persons.observe(this) { person ->
             person?.let {
                 adapter = PersonAdapter(
                     this, it,
